@@ -1,7 +1,7 @@
 import { Box, TableBody, TableCell, TableRow, Typography } from "@mui/material";
 import { FC } from "react";
 import { Transaction } from "types";
-import { formatCurrency } from "utils";
+import { formatCurrency, formatDate } from "utils";
 
 const getColor = (n: number) => (n % 2 ? "#2F3034" : "#128B8C");
 
@@ -29,7 +29,7 @@ export const TransactionTableData: FC<TransactionTableDataProps> = ({
       {transactions.map((row, index) => (
         <TableRow key={index}>
           <TableCell>
-            <Typography color="grey.100">{row.Date}</Typography>
+            <Typography color="grey.100">{formatDate(row.Date)}</Typography>
           </TableCell>
           <TableCell>
             <Typography fontWeight="medium" color={getColor(index)}>

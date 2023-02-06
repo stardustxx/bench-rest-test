@@ -9,9 +9,9 @@ export const formatCurrency = (
   options: FormatCurrencyProps = {}
 ) => {
   const { locale, maximumFractionDigits, currency }: FormatCurrencyProps = {
-    locale: "en-US",
+    locale: "en-CA",
     maximumFractionDigits: 0,
-    currency: "USD",
+    currency: "CAD",
     ...options,
   };
 
