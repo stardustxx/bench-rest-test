@@ -2,6 +2,13 @@
 
 This repo contains the implementation for the Bench test.
 
+## Environment
+
+Tested on
+
+* Node 19.6.0
+* npm 9.4.0
+
 ## Dev
 
 To run the project:
