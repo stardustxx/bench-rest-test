@@ -67,3 +67,5 @@ Codes are split into multiple folders that they should belong to based on what t
 * Some transactions seem to be duplicated and without a unique key I cannot verify if they are actually duplicated but to show all of them.
 
 * Dates don't include a timezone which could potentially make the frontend display the dates incorrectly without proper assumption and different browsers also react to it differently.
+
+* Linters (eslint, prettiers) should be set up so we can have the same coding styles regardless of who contributors are.
