@@ -2,9 +2,11 @@ import { render, screen } from "@testing-library/react";
 import { useTransactions } from "hooks";
 import { TransactionTable } from "../TransactionTable";
 
-jest.mock("hooks", () => ({
-  useTransactions: jest.fn(),
-}));
+jest.mock("hooks");
+
+const mockedUseTransactions = useTransactions as jest.MockedFunction<
+  typeof useTransactions
+>;
 
 describe("TransactionTable", () => {
   const setup = () => render(<TransactionTable />);
@@ -14,7 +16,7 @@ describe("TransactionTable", () => {
   });
 
   it("should render", () => {
-    useTransactions.mockImplementation(() => ({
+    mockedUseTransactions.mockImplementation(() => ({
       data: {
         pages: [
           {
@@ -43,12 +45,12 @@ describe("TransactionTable", () => {
 
     screen.getByRole("cell", { name: "$10.00" });
     screen.getByRole("cell", { name: "Test 1" });
-    screen.getByRole("cell", { name: "2023-01-01" });
+    screen.getByRole("cell", { name: "Jan 1st, 2023" });
     screen.getByRole("cell", { name: "AAA" });
   });
 
   it("should render error message", () => {
-    useTransactions.mockImplementation(() => ({
+    mockedUseTransactions.mockImplementation(() => ({
       data: {
         pages: [],
         pageParams: [],

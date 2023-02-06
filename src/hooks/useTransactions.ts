@@ -9,7 +9,14 @@ const SIZE = 10;
 export const useTransactions = (
   options?: UseInfiniteQueryOptions<TransactionPage>
 ) => {
-  return useInfiniteQuery<TransactionPage>({
+  const {
+    data,
+    error,
+    isSuccess,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+  } = useInfiniteQuery<TransactionPage>({
     queryFn: async ({ pageParam = 1 }) => {
       const response = await fetch(
         `https://resttest.bench.co/transactions/${pageParam}.json`
@@ -31,4 +38,13 @@ export const useTransactions = (
     },
     ...options,
   });
+
+  return {
+    data,
+    error,
+    isSuccess,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+  };
 };
