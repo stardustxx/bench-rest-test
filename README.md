@@ -64,4 +64,6 @@ Codes are split into multiple folders that they should belong to based on what t
 
 * It also seems we have some fields that are empty. I could show N/A in their places or backend should make sure it is not empty.
 
+* Some transactions seem to be duplicated and without a unique key I cannot verify if they are actually duplicated but to show all of them.
+
 * Dates don't include a timezone which could potentially make the frontend display the dates incorrectly without proper assumption and different browsers also react to it differently.
